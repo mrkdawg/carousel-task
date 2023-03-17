@@ -1,0 +1,9 @@
+:root {
+    --font: sans-serif;
+    --fontsize: 16px;
+    --fontweight: normal;
+    --headingfont: var(--font);
+    --headingweight: bold;
+    --lineheight: 1.4;
+    --color: #000;
+}

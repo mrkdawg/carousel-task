@@ -1,0 +1,17 @@
+.slider {
+    overflow: hidden;
+}
+
+.slider > div {
+    white-space: nowrap;
+    transition: transform 0.3s;
+}
+
+.slide {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: green;
+    color: #fff;
+}

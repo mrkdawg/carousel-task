@@ -1,0 +1,14 @@
+html {
+  font-size: var(--fontsize);
+  line-height: var(--lineheight);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: var(--font);
+  font-weight: var(--fontweight);
+  color: var(--color);
+}
