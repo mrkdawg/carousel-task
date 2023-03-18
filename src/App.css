@@ -21,6 +21,10 @@ nav > ul > li {
     font-size: 0.875em;
 }
 
+a, a:visited {
+    color: #fff;
+}
+
 section {
     height: 41.25em;
     background-repeat: no-repeat;
