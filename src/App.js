@@ -15,10 +15,10 @@ function App() {
         <img src={logoCatalyst} alt="Catalyst logo" />
         <nav>
           <ul>
-            <li><a>About Us</a></li>
-            <li><a>Our Work</a></li>
-            <li><a>CMO Now</a></li>
-            <li><a>Contact</a></li>
+            <li><a href="/">About Us</a></li>
+            <li><a href="/">Our Work</a></li>
+            <li><a href="/">CMO Now</a></li>
+            <li><a href="/">Contact</a></li>
           </ul>
         </nav>
       </header>
