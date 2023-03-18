@@ -4,25 +4,16 @@ import { useSwipeable } from "react-swipeable";
 import "./Slider.css";
 
 export function Slider({ children }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(4);
     const [paused, setPaused] = useState(false);
-
-    const updateIndex = (newIndex) => {
-        if (newIndex < 0) {
-            newIndex = React.Children.count(children) - 1;
-        } else if (newIndex >= React.Children.count(children)) {
-            newIndex = 0;
-        }
-
-        setCurrentIndex(newIndex);
-    };
+    const [transitionEnabled, setTransitionEnabled] = useState(true);
 
     useEffect(() => {
         const interval = setInterval(() => {
             if (!paused) {
-                updateIndex(currentIndex + 1);
+                setCurrentIndex(currentIndex + 1);
             }
-        }, 1000);
+        }, 2000);
 
         return () => {
             if (interval) {
@@ -32,15 +23,37 @@ export function Slider({ children }) {
     });
 
     const handlers = useSwipeable({
-       onSwipedLeft: () => updateIndex(currentIndex + 1), 
-       onSwipedRight: () => updateIndex(currentIndex - 1) 
+       onSwipedLeft: () => setCurrentIndex(currentIndex + 1), 
+       onSwipedRight: () => setCurrentIndex(currentIndex - 1) 
     });
+
+    const handleTransitionEnd = () => {
+        if (currentIndex === 8 || currentIndex === 0) {
+            setTransitionEnabled(false);
+            setCurrentIndex(4);
+            setTimeout(() => {
+                setTransitionEnabled(true);
+            }, 500);
+        }
+    }
 
     return (
         <div className="slider" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} {...handlers}>
-            <div style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+            <div
+                style={{
+                    transition: !transitionEnabled ? 'none' : "transform 0.3s",
+                    transform: `translateX(-${currentIndex * 25}%)`
+                }}
+                onTransitionEnd={() => handleTransitionEnd()}
+            >
                 {React.Children.map(children, child => {
-                    return React.cloneElement(child, { width: "100%" });
+                    return React.cloneElement(child, { width: "25%" });
+                })}
+                {React.Children.map(children, child => {
+                    return React.cloneElement(child, { width: "25%" });
+                })}
+                {React.Children.map(children, child => {
+                    return React.cloneElement(child, { width: "25%" });
                 })}
             </div>
         </div>
