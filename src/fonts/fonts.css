@@ -2,12 +2,12 @@
     font-family: "Bison";
     font-style: normal;
     font-weight: 600;
-    src: url("./Bison-DemiBold.woff2") format("woff2");
+    src: url("./Bison-DemiBold.woff2") format("woff2"), url("./Bison-DemiBold.woff") format("woff");
 }
 
 @font-face {
     font-family: "Grandview";
     font-style: normal;
     font-weight: 400;
-    src: url("./Grandview-Regular.woff2") format("woff2");
+    src: url("./Grandview-Regular.woff2") format("woff2"), url("./Grandview-Regular.woff") format("woff");
 }
